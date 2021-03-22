@@ -1,0 +1,38 @@
+﻿
+@model AWS_ElasticBeanstalk_Project.Models.Comment
+
+@{
+    ViewData["Title"] = "Delete";
+    var userId = ViewData["userId"].ToString();
+    var videoId = ViewData["videoId"].ToString();
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Comment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+        <a href="C:\Users\saura\Downloads\Semester-03_Files\API Engineering & Cloud Computing\Assignments\301109394(sharma)_Lab03\301109394(sharma)_Lab03\Views\Comments\Delete.cshtml">C:\Users\saura\Downloads\Semester-03_Files\API Engineering & Cloud Computing\Assignments\301109394(sharma)_Lab03\301109394(sharma)_Lab03\Views\Comments\Delete.cshtml</a>
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentContent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CommentContent)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CommentId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        @Html.ActionLink("Back to List", "Index", "Comments", new { userId = @userId, videoId = @videoId })
+        @*<a asp-action="Index">Back to List</a>*@
+    </form>
+</div>

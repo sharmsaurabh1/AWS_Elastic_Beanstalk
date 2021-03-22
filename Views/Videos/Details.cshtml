@@ -1,0 +1,49 @@
+﻿
+@model AWS_ElasticBeanstalk_Project.Models.Video
+
+@{
+    ViewData["Title"] = "Details";
+    var userId = ViewData["userId"].ToString();
+}
+
+<h2>Video Details</h2>
+
+<div>
+    @if (!string.IsNullOrEmpty(userId))
+    {
+        <h4>User: @userId</h4>
+    }
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OverallRating)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OverallRating)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Commnt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Commnt)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.VideoId">Edit</a> |
+    @Html.ActionLink("Back to List", "Index", "Videos", new { userId = @userId })
+    @*<a asp-action="Index">Back to List</a>*@
+</div>

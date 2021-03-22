@@ -1,0 +1,48 @@
+﻿@model AWS_ElasticBeanstalk_Project.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+    var errorMessage = ViewData["errorMessage"];
+}
+
+<h2>Login</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div>
+                <span class="btn-link">
+                     @Html.ActionLink("View_Videos_List", "Index", "Videos", new { userId = "" })
+                </span>
+            </div>
+            <div>
+                <span> &nbsp;</span>
+                <span> &nbsp;</span>
+                <span> &nbsp;</span>
+            </div>
+            <div>
+                <span class="text-danger"> @errorMessage</span>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label">Username</label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Password</label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

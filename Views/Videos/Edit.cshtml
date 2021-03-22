@@ -1,0 +1,53 @@
+﻿@model AWS_ElasticBeanstalk_Project.Models.Video
+
+@{
+    ViewData["Title"] = "Edit";
+    var userId = ViewData["userId"].ToString();
+}
+
+<h2>Edit Video</h2>
+
+@if (!string.IsNullOrEmpty(userId))
+{
+    <h4>User: @userId</h4>
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="VideoId" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OverallRating" class="control-label"></label>
+                <input asp-for="OverallRating" class="form-control" />
+                <span asp-validation-for="OverallRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Commnt" class="control-label"></label>
+                <input asp-for="Commnt" class="form-control" />
+                <span asp-validation-for="Commnt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Videos", new { userId = @userId })
+    @*<a asp-action="Index">Back to List</a>*@
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

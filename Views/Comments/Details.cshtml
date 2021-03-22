@@ -1,0 +1,34 @@
+﻿
+@model AWS_ElasticBeanstalk_Project.Models.Comment
+@{
+    ViewData["Title"] = "Details";
+    var userId = ViewData["userId"].ToString();
+    var videoId = ViewData["videoId"].ToString();
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Comment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentContent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CommentContent)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", "Comments", new { id = @Model.CommentId, userId = @userId, videoId = @videoId }) |
+    @Html.ActionLink("Back to List", "Index", "Comments", new { userId = @userId, videoId = @videoId })
+    @*<a asp-action="Edit" asp-route-id="@Model.CommentId">Edit</a> |
+        <a asp-action="Index">Back to List</a>*@
+</div>
